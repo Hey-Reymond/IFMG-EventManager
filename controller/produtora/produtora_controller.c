@@ -1,5 +1,6 @@
 #include "controller/produtora/produtora_controller.h"
 #include <stdlib.h>
+#include "view/interface.h"
 #include "model/produtora/produtora_model.h"
 #include "view/produtora/produtora_view.h"
 
