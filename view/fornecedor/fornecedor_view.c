@@ -42,10 +42,11 @@ void listarFornecedoresView(Sistema *sistema) {
     }
     printf("\n--- Lista de Fornecedores ---\n");
     for (int i = 0; i < sistema->num_fornecedores; i++) {
-        printf("ID: %d | %s | Servico: %s\n", 
+        printf("ID: %d | %s | Servico: %s| Valor: %.2f\n", 
                sistema->lista_fornecedores[i].codigo,
                sistema->lista_fornecedores[i].nome_fantasia,
-               sistema->lista_fornecedores[i].tipo_servico);
+               sistema->lista_fornecedores[i].tipo_servico,
+               sistema->lista_fornecedores[i].valor_servico);
     }
 }
 void formulario_novo_fornecedor(Fornecedor *f) {
