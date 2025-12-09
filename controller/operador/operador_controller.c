@@ -13,7 +13,7 @@ static int obterProximoIdOperador(Sistema *sistema) {
 }
 
 void adicionarOperadorController(Sistema *sistema) {
-    // Adiciona um novo operador ao sistema.
+    // Adiciona um novo operador ao sistema
     if (sistema->num_operadores == sistema->capacidade_operadores) {
         int nova_cap = (sistema->capacidade_operadores == 0) ? 10 : sistema->capacidade_operadores * 2;
         Operador *temp = realloc(sistema->lista_operadores, nova_cap * sizeof(Operador));
@@ -36,7 +36,7 @@ void adicionarOperadorController(Sistema *sistema) {
 }
 
 void alterarOperadorController(Sistema *sistema) {
-    // Altera dados de um operador existente.
+    // Altera dados de um operador existente
     listarOperadoresView(sistema);
     if (sistema->num_operadores == 0) return;
     
@@ -62,7 +62,7 @@ void alterarOperadorController(Sistema *sistema) {
 }
 
 void excluirOperadorController(Sistema *sistema) {
-    // Exclui um operador do sistema.
+    // Exclui um operador do sistema
     listarOperadoresView(sistema);
     if (sistema->num_operadores == 0) return;
     

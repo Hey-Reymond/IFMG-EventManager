@@ -35,7 +35,7 @@ void menuProdutoraView(Sistema *sistema) {
     } while (opcao != 0);
 }
 
-// Mantive a função de ver detalhes igual, pois ela é uma lista e não um menu
+// Mantive a função de ver detalhes
 void verDetalhesProdutoraView(Sistema *sistema) {
     if (sistema->dados_produtora == NULL) {
         printf("\nNenhuma produtora cadastrada para exibir.\n");

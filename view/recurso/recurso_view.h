@@ -4,7 +4,6 @@
 
 // Exibe o menu de gerenciamento de recursos
 void menuRecursosView(Sistema *sistema);
-
 void listarRecursosView(Sistema *sistema);
 void formulario_novo_recurso(Recurso *r);
 int pedir_id_recurso(const char *acao);

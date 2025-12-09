@@ -12,6 +12,7 @@
 #include "model/evento/evento_model.h"
 #include "model/transacao/transacao_model.h"
 
+// copia os dados de um tipo de arquivo para outro
 void converterDadosController(Sistema *sistema, TipoArmazenamento origem, TipoArmazenamento destino) {
     Sistema temp;
     memset(&temp, 0, sizeof(Sistema));

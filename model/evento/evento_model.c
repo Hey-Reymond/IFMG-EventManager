@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "model/config_armazenamento/config_armazenamento.h"
-
 #define EVENTOS_DATA_FILE "data/eventos.dat"
 #define EVENTOS_TEXT_FILE "data/eventos.txt"
 

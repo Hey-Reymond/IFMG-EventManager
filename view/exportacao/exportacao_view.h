@@ -9,7 +9,7 @@ int obterOpcaoXML();
 
 // Menu para escolher qual tabela
 int menuEscolherTabela();
-// Pede o nome do arquivo
+// pede o nome do arquivo
 void pedirNomeArquivo(char *buffer);
 void msg_exportacao_sucesso(char *arquivo);
 void msg_importacao_sucesso(int qtd);

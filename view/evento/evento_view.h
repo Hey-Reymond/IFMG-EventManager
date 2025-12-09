@@ -12,16 +12,13 @@ int perguntar_se_adiciona_equipe();
 void formulario_adicionar_equipe(int *cod);
 int perguntar_se_adiciona_fornecedor();
 void formulario_adicionar_fornecedor(int *cod);
-
 int pedir_id_evento(const char *acao);
-
 
 void msg_fornecedor_adicionado_sucesso(char *nome_fornecedor, float custo);
 void msg_recurso_adicionado();
 void msg_recurso_nao_encontrado();
 void msg_conflito_estoque(int cod, int total, int usado);
 void msg_evento_aprovado();
-
 
 void msg_verificando_disponibilidade();
 void msg_conflito_equipe(int cod, char *nome_evento);

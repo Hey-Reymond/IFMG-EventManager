@@ -1,15 +1,13 @@
 #ifndef SISTEMA_H
 #define SISTEMA_H
 
-// --- TIPOS DE ARMAZENAMENTO ---
 typedef enum { MEMORIA, ARQUIVO_TEXTO, ARQUIVO_BINARIO } TipoArmazenamento;
 
-// --- STATUS E ENUMS ---
 typedef enum { ORCAMENTO, APROVADO, FINALIZADO, CANCELADO } StatusEvento;
 typedef enum { CONTA_A_RECEBER, CONTA_A_PAGAR, MOVIMENTACAO_CAIXA } TipoTransacao;
 typedef enum { PENDENTE, PAGA } StatusTransacao;
 
-// --- ESTRUTURAS BASICAS ---
+
 typedef struct {
     char nome_fantasia[100];
     char razao_social[100];
@@ -67,8 +65,6 @@ typedef struct {
     char usuario[50];
     char senha[50];
 } Operador;
-
-// --- ESTRUTURAS DE EVENTO (LISTAS INTERNAS) ---
 typedef struct {
     int codigo_recurso;
     int quantidade;
@@ -83,10 +79,9 @@ typedef struct {
 // Estrutura pro fornecedor dentro do evento
 typedef struct {
     int codigo_fornecedor;
-    float valor_cobrado; // Quanto custou esse servico
+    float valor_cobrado; 
 } ItemFornecedorEvento;
 
-// --- ESTRUTURAS PRINCIPAIS (EVENTO E TRANSACAO) ---
 typedef struct {
     int codigo;
     char nome_evento[150];
@@ -127,7 +122,7 @@ typedef struct {
     int codigo_evento_ref;
 } Transacao;
 
-// --- SISTEMA GERAL ---
+//sistema em geral
 typedef struct {
     TipoArmazenamento modo_de_armazenamento;
 

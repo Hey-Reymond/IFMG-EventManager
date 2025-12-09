@@ -1,12 +1,12 @@
 #ifndef CLIENTE_VIEW_H
 #define CLIENTE_VIEW_H
 
-#include "model/sistema.h"  // Para acessar os dados do sistema
+#include "model/sistema.h"
 
-// Exibe o menu de clientes (Adicionar, Alterar, Listar, Excluir)
+// Exibe o menu de clientes
 void menuClientesView(Sistema *sistema);
 
-// Lista todos os clientes cadastrados de forma organizada
+// Lista todos os clientes cadastrados 
 void listarClientesView(Sistema *sistema);
 
 void mensagem_sucesso(const char *msg);

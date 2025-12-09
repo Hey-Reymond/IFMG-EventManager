@@ -11,10 +11,10 @@ void limpar_numeros(char *dest, const char *src) {
         if (isdigit(*src)) *dest++ = *src;
         src++;
     }
-    *dest = 0; // Finaliza string
+    *dest = 0;
 }
 
-// Funcao genérica para calcular digito verificador (serve p/ CPF e CNPJ)
+// Funcao genérica para calcular digito verificador  CPF e CNPJ
 int calcular_digito(const char *str, int *pesos, int qtd_para_calcular) {
     int soma = 0;
     for (int i = 0; i < qtd_para_calcular; i++) {
@@ -29,7 +29,7 @@ int validar_cpf_logica(const char *cpf_bruto) {
     char cpf[12]; limpar_numeros(cpf, cpf_bruto);
     if (strlen(cpf) != 11) return 0;
     
-    // Verifica digitos iguais (111.111.111-11)
+    // Verifica digitos sao tds iguais 
     int i; for (i=0; i<10 && cpf[i]==cpf[i+1]; i++); if (i==10) return 0;
 
     int p1[] = {10,9,8,7,6,5,4,3,2};
@@ -57,7 +57,7 @@ int validar_data_logica(char *data) {
     if (sscanf(data, "%d/%d/%d", &d, &m, &a) != 3) return 0;
     if (a < 1900 || a > 2100 || m < 1 || m > 12 || d < 1) return 0;
 
-    // Tabela de dias por mes (index 0 vazio para mes 1 bater com index 1)
+    // Tabela de dias por mes 
     int dias_mes[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     
     // Ajuste ano bissexto

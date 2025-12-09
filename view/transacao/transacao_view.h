@@ -4,7 +4,6 @@
 
 void menuTransacoesView(Sistema *sistema);
 void formularioRegistrarCompraView(Sistema *sistema);
-
 void listar_contas_filtro(Sistema *sistema, TipoTransacao tipo); 
 int pedir_id_pagamento();
 void mostrar_saldo(float saldo);

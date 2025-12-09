@@ -15,7 +15,7 @@ void adicionarProdutoraController(Sistema *sistema) {
         return;
     }
 
-    // O Controller pede pra View preencher os dados no ponteiro que ele criou
+    // preenchido pela view
     formulario_produtora(sistema->dados_produtora);
 
     salvarProdutora(sistema);

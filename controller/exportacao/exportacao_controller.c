@@ -9,8 +9,7 @@ int ler_campo(char *linha, char *rotulo, char *destino) {
     // ve se a linha comeca com o  que quero
     if (strncmp(linha, rotulo, strlen(rotulo)) == 0) {
         strcpy(destino, linha + strlen(rotulo));
-        
-        // tira o enter do final
+       
         destino[strcspn(destino, "\n")] = 0;
         return 1;
     }

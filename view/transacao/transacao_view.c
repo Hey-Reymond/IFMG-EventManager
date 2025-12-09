@@ -6,16 +6,17 @@
 #include "model/recurso/recurso_model.h"
 
 void menuTransacoesView(Sistema *sistema) {
- 
     int opcao;
     do {
         limpar_tela();
         printf("+=====================================================+\n");
-        printf("|               MENU FINANCEIRO / COMPRAS             |\n");
+        printf("|             MENU FINANCEIRO / COMPRAS               |\n");
+        printf("+=====================================================+\n");
         printf("| [1] Registrar Compra (Nota Fiscal)                  |\n");
         printf("| [2] Gerenciar Contas a Receber                      |\n");
         printf("| [3] Gerenciar Contas a Pagar                        |\n");
         printf("| [4] Ver Saldo do Caixa                              |\n");
+        printf("+-----------------------------------------------------+\n");
         printf("| [0] Voltar                                          |\n");
         printf("+=====================================================+\n");
         printf("Escolha: ");
@@ -34,28 +35,44 @@ void menuTransacoesView(Sistema *sistema) {
     } while (opcao != 0);
 }
 
-// ... (Mantenha formularioRegistrarCompraView se estiver lá) ...
 void formularioRegistrarCompraView(Sistema *sistema) {
-    // ... (Seu código existente de registrar compra) ...
-    // Se não tiver o código, avise que eu mando, mas parece que já tinha no upload anterior.
-    // Lembre-se: NÃO implemente gerenciarContas... aqui embaixo!
-}
+    Transacao novaTransacao;
+    
+    limpar_tela();
+    printf("=======================================\n");
+    printf("     REGISTRAR NOVA COMPRA (DESPESA)   \n");
+    printf("=======================================\n");
 
-// --- IMPLEMENTAÇÕES QUE FALTAVAM ---
+    printf("Descricao da compra: ");
+    ler_texto_valido(novaTransacao.descricao, sizeof(novaTransacao.descricao), VALIDAR_NAO_VAZIO);
+
+    printf("Valor (R$): ");
+    ler_float_positivo(&novaTransacao.valor);
+
+    printf("Data de Vencimento (DD/MM/AAAA): ");
+    ler_texto_valido(novaTransacao.data_vencimento, sizeof(novaTransacao.data_vencimento), VALIDAR_DATA);
+
+    novaTransacao.tipo = CONTA_A_PAGAR; 
+    novaTransacao.status = PENDENTE; 
+
+    // Chama o controller para salvar
+    registrarTransacao(sistema, novaTransacao);
+    mensagem_sucesso("Compra registrada com sucesso!");
+}
 
 void listar_contas_filtro(Sistema *sistema, TipoTransacao tipo) {
     printf("\n--- Lista de Contas ---\n");
     int achou = 0;
     for(int i=0; i < sistema->num_transacoes; i++) {
         if(sistema->lista_transacoes[i].tipo == tipo) {
-             char *status_txt = (sistema->lista_transacoes[i].status == PAGA) ? "PAGA" : "PENDENTE";
-             printf("ID: %d | %s | R$ %.2f | Vence: %s | Status: %s\n", 
+            char *status_txt = (sistema->lista_transacoes[i].status == PAGA) ? "PAGA" : "PENDENTE";
+            printf("ID: %d | %s | R$ %.2f | Vence: %s | Status: %s\n", 
                 sistema->lista_transacoes[i].codigo, 
                 sistema->lista_transacoes[i].descricao, 
                 sistema->lista_transacoes[i].valor, 
                 sistema->lista_transacoes[i].data_vencimento,
                 status_txt);
-             achou = 1;
+            achou = 1;
         }
     }
     if(!achou) printf("Nenhuma conta encontrada neste filtro.\n");

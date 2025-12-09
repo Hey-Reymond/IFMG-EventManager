@@ -3,7 +3,7 @@
 
 #include "model/sistema.h"
 
-// Adiciona um novo membro à equipe interna
+// Adiciona um novo membro a equipe interna
 void adicionarEquipeInternaController(Sistema *sistema);
 
 // Altera os dados de um membro existente

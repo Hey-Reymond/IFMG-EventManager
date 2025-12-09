@@ -1,17 +1,15 @@
-// Evita a inclusão duplicada deste cabeçalho, prevenindo erros de redefinição
 #ifndef PRODUTORA_MODEL_H
 #define PRODUTORA_MODEL_H
 
-// Inclui a definição da estrutura principal do sistema
 #include "model/sistema.h"
 
-// Salva os dados da produtora conforme o modo de armazenamento configurado
+// Salva os dados da produtora conforme o modo de armazenamento escolhido
 void salvarProdutora(Sistema *sistema);
 
-// Carrega os dados da produtora do arquivo para a memória
+// Carrega os dados da produtora do arquivo para a memoria
 void carregarProdutora(Sistema *sistema);
 
-// Libera a memória alocada para os dados da produtora
+// Libera a memoria alocada para os dados da produtora
 void liberarMemoriaProdutora(Sistema *sistema);
 
 #endif

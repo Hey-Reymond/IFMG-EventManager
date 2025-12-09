@@ -1,7 +1,7 @@
 #ifndef FORNECEDOR_CONTROLLER_H
 #define FORNECEDOR_CONTROLLER_H
 
-#include "model/sistema.h"  // Acesso à estrutura principal do sistema
+#include "model/sistema.h"
 
 // Adiciona um novo fornecedor ao sistema
 void adicionarFornecedorController(Sistema *sistema);

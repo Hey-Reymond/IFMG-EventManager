@@ -17,7 +17,7 @@ long long converteData(char *data, char *hora) {
     sscanf(data, "%d/%d/%d", &d, &m, &a);
     sscanf(hora, "%d:%d", &h, &min);
     
-    // Matemática basica pra juntar tudo
+    // junta td
     long long resultado = (long long)a * 100000000; 
     resultado += m * 1000000;
     resultado += d * 10000;
@@ -50,7 +50,6 @@ int verificar_conflitos(Sistema *sistema, Evento *e_atual) {
         for (int j = 0; j < sistema->num_eventos; j++) {
             Evento *outro = &sistema->lista_eventos[j];
             
-            // Pula se for o mesmo ou nao tiver aprovado
             if (outro->codigo == e_atual->codigo) continue;
             if (outro->status != APROVADO) continue;
 
