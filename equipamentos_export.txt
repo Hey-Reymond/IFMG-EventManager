@@ -1,0 +1,23 @@
+LISTA DE EQUIPAMENTOS
+REGISTRO
+Codigo: 1
+Descricao: Baloes
+Categoria: Decoracao
+Estoque: 25
+Custo: 120.00
+Locacao: 10.00
+REGISTRO
+Codigo: 2
+Descricao: mesa
+Categoria: alimentacao
+Estoque: 25
+Custo: 130.00
+Locacao: 15.00
+REGISTRO
+Codigo: 3
+Descricao: pratos
+Categoria: alimentacao
+Estoque: 50
+Custo: 300.00
+Locacao: 30.00
+FIM

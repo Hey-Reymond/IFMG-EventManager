@@ -1,0 +1,34 @@
+<dados>
+<tabela-fornecedor>
+<registro>
+<codigo>1</codigo>
+<nome_fantasia>Sempre doces</nome_fantasia>
+<razao_social>arecadacao</razao_social>
+<cnpj>16428006600</cnpj>
+<endereco>Serra verde avenida maria cristina da silveira 663</endereco>
+<telefone>998268735</telefone>
+<tipo_servico>doces</tipo_servico>
+<valor_servico>120.00</valor_servico>
+</registro>
+<registro>
+<codigo>2</codigo>
+<nome_fantasia>Restaurante</nome_fantasia>
+<razao_social>arecadacao</razao_social>
+<cnpj>16428006600</cnpj>
+<endereco>Serra verde avenida maria cristina da silveira 663</endereco>
+<telefone>998268735</telefone>
+<tipo_servico>comida</tipo_servico>
+<valor_servico>200.00</valor_servico>
+</registro>
+<registro>
+<codigo>3</codigo>
+<nome_fantasia>Ilunincao </nome_fantasia>
+<razao_social>arecadacao</razao_social>
+<cnpj>16428006600</cnpj>
+<endereco>rosario rua raimundo lima 12</endereco>
+<telefone>999570966</telefone>
+<tipo_servico>Iluninacao</tipo_servico>
+<valor_servico>400.00</valor_servico>
+</registro>
+</tabela-fornecedor>
+</dados>

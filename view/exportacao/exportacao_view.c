@@ -22,16 +22,19 @@ int obterOpcaoXML() {
     ler_inteiro_valido(&op, 0, 2);
     return op;
 }
-
 int menuEscolherTabela() {
     int op;
     printf("\nQual tabela deseja manipular?\n");
     printf("[1] Clientes\n");
     printf("[2] Equipamentos (Recursos)\n");
     printf("[3] Eventos\n");
+    printf("[4] Produtora\n");
+    printf("[5] Fornecedores\n");
+    printf("[6] Equipe Interna\n");
+    printf("[7] Transacoes Financeiras\n");
     printf("[0] Cancelar\n");
     printf("Escolha: ");
-    ler_inteiro_valido(&op, 0, 3);
+    ler_inteiro_valido(&op, 0, 7);
     return op;
 }
 
@@ -40,7 +43,6 @@ void pedirNomeArquivo(char *buffer) {
     fflush(stdin);
     fgets(buffer, 50, stdin);
     buffer[strcspn(buffer, "\n")] = 0;
-  
 }
 
 void msg_exportacao_sucesso(char *arquivo) {

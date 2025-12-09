@@ -1,2 +1,4 @@
 ID   | VENCIMENTO  | VALOR       | STATUS    | DESCRICAO
 1    | 07/12/2025  | 490.00      | PAGO      | Faturamento Evento: festa
+2    | 09/11/2025  | 1240.00     | PAGO      | Faturamento Evento: Festa 
+4    | 07/12/2025  | 440.00      | PENDENTE  | Faturamento Evento: Show
