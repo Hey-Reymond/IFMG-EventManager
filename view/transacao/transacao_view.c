@@ -128,7 +128,6 @@ void formularioRegistrarCompraView(Sistema *sistema) {
     salvarRecursos(sistema);
 
     printf("\nCompra registrada com sucesso!\n");
-    pausar();
 }
 
 void listar_contas_filtro(Sistema *sistema, TipoTransacao tipo) {
