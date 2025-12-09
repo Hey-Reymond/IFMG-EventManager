@@ -4,6 +4,7 @@
 #include "utils/validation.h"
 #include "controller/transacao/transacao_controller.h"
 #include "model/recurso/recurso_model.h"
+#include "view/recurso/recurso_view.h"
 
 void menuTransacoesView(Sistema *sistema) {
     int opcao;
@@ -36,28 +37,98 @@ void menuTransacoesView(Sistema *sistema) {
 }
 
 void formularioRegistrarCompraView(Sistema *sistema) {
-    Transacao novaTransacao;
-    
+    if (sistema->dados_produtora == NULL) {
+        printf("\nErro: Cadastre a Produtora antes.\n");
+        pausar();
+        return;
+    }
+
+    float margem = sistema->dados_produtora->margem_lucro;
+    float val_frete = 0;
+    float val_imposto = 0;
+    int qtd_total_nota = 0;
+    float total_gasto_nota = 0;
+
     limpar_tela();
-    printf("=======================================\n");
-    printf("     REGISTRAR NOVA COMPRA (DESPESA)   \n");
-    printf("=======================================\n");
+    printf("REGISTRAR COMPRA (NOTA FISCAL)\n");
 
-    printf("Descricao da compra: ");
-    ler_texto_valido(novaTransacao.descricao, sizeof(novaTransacao.descricao), VALIDAR_NAO_VAZIO);
+    printf("Valor Total do Frete: ");
+    ler_float_positivo(&val_frete);
 
-    printf("Valor (R$): ");
-    ler_float_positivo(&novaTransacao.valor);
+    printf("Valor Total de Impostos: ");
+    ler_float_positivo(&val_imposto);
 
-    printf("Data de Vencimento (DD/MM/AAAA): ");
-    ler_texto_valido(novaTransacao.data_vencimento, sizeof(novaTransacao.data_vencimento), VALIDAR_DATA);
+    printf("Quantidade total de itens na nota: ");
+    ler_inteiro_valido(&qtd_total_nota, 1, 10000);
 
-    novaTransacao.tipo = CONTA_A_PAGAR; 
-    novaTransacao.status = PENDENTE; 
+    float frete_un = val_frete / qtd_total_nota;
+    float imp_un = val_imposto / qtd_total_nota;
 
-    // Chama o controller para salvar
-    registrarTransacao(sistema, novaTransacao);
-    mensagem_sucesso("Compra registrada com sucesso!");
+    int continuar = 1;
+    while(continuar) {
+        listarRecursosView(sistema);
+        
+        int id_rec;
+        printf("\nDigite o ID do Recurso comprado: ");
+        ler_inteiro_valido(&id_rec, 1, 999999);
+
+        Recurso *r = NULL;
+        for(int i=0; i < sistema->num_recursos; i++) {
+            if(sistema->lista_recursos[i].codigo == id_rec) {
+                r = &sistema->lista_recursos[i];
+                break;
+            }
+        }
+
+        if(r != NULL) {
+            int qtd_item;
+            float custo_item;
+            
+            printf("Quantidade comprada deste item: ");
+            ler_inteiro_valido(&qtd_item, 1, 9999);
+
+            printf("Preco de Custo Unitario: ");
+            ler_float_positivo(&custo_item);
+
+            float custo_final = custo_item + frete_un + imp_un;
+            float novo_preco_locacao = custo_final * (margem / 100.0);
+
+            r->quantidade_estoque += qtd_item;
+            r->preco_custo = custo_item;
+            r->valor_locacao = novo_preco_locacao;
+
+            total_gasto_nota += (custo_item * qtd_item);
+
+            printf("\nItem atualizado!\n");
+            printf("Custo Final: %.2f\n", custo_final);
+            printf("Novo Valor Locacao: %.2f\n", novo_preco_locacao);
+        } else {
+            printf("\nRecurso nao encontrado.\n");
+        }
+
+        printf("\nAdicionar outro item? (1-Sim, 0-Nao): ");
+        scanf("%d", &continuar);
+        limpar_buffer();
+    }
+
+    Transacao t;
+    t.valor = total_gasto_nota + val_frete + val_imposto;
+    t.tipo = CONTA_A_PAGAR;
+    t.status = PENDENTE;
+    t.codigo_cliente_ref = 0;
+    t.codigo_evento_ref = 0;
+
+    printf("\nDescricao da Nota: ");
+    ler_texto_valido(t.descricao, 150, VALIDAR_NAO_VAZIO);
+
+    printf("Data Vencimento (DD/MM/AAAA): ");
+    ler_texto_valido(t.data_vencimento, 15, VALIDAR_DATA);
+
+    registrarTransacao(sistema, t);
+    salvarRecursos(sistema);
+
+    printf("\nCompra registrada com sucesso!\n");
+    pausar();
 }
 
 void listar_contas_filtro(Sistema *sistema, TipoTransacao tipo) {
