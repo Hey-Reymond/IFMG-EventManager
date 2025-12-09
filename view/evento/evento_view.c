@@ -179,5 +179,4 @@ void msg_evento_finalizado_sucesso(float valor) {
     printf(" Valor Total Faturado: R$ %.2f\n", valor);
     printf(" Conta a Receber gerada automaticamente.\n");
     printf("============================================\n");
-    pausar();
 }
