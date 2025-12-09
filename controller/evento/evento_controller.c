@@ -8,6 +8,7 @@
 #include "view/recurso/recurso_view.h"
 #include "view/cliente/cliente_view.h"
 #include "view/fornecedor/fornecedor_view.h"
+#include "view/equipe_interna/equipe_interna_view.h"
 #include "controller/transacao/transacao_controller.h"
 #include "utils/utils.h"
 
