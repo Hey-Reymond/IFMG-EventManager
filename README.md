@@ -84,7 +84,17 @@ O projeto segue o padrão **MVC (Model-View-Controller)** para organização do 
         </sub>
       </a>
     </td>
+    <td align="center">
+      <a href="https://github.com/bielbieloliveirag8-eng">
+        <img src="https://github.com/bielbieloliveirag8-eng.png?size=100" width="100px;" alt="Foto de Camily Leal Silva no GitHub"/>
+        <br />
+        <sub>
+          <b>Gabriel Mendonça O.</b>
+        </sub>
+      </a>
+    </td>
   </tr>
 </table>
 
 > Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+
