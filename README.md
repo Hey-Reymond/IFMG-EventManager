@@ -43,7 +43,7 @@ O projeto resolve problemas como: conflito de agenda de equipamentos e equipe, c
 ### Passos
 1.  Clone este repositório:
     ```bash
-    git clone [https://github.com/reireymond/eventmananger.git](https://github.com/reireymond/eventmananger.git)
+    git clone https://github.com/reireymond/eventmananger.git
     ```
 2.  Compile o projeto usando o `makefile` incluso:
     ```bash
