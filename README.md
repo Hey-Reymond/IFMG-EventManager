@@ -43,7 +43,7 @@ O projeto resolve problemas como: conflito de agenda de equipamentos e equipe, c
 ### Passos
 1.  Clone este repositório:
     ```bash
-    git clone https://github.com/reireymond/eventmananger.git
+    git clone https://github.com/reireymond/IFMG-EventManager.git
     ```
 2.  Compile o projeto usando o `makefile` incluso:
     ```bash
@@ -86,7 +86,7 @@ O projeto segue o padrão **MVC (Model-View-Controller)** para organização do 
     </td>
     <td align="center">
       <a href="https://github.com/bielbieloliveirag8-eng">
-        <img src="https://github.com/bielbieloliveirag8-eng.png?size=100" width="100px;" alt="Foto de Camily Leal Silva no GitHub"/>
+        <img src="https://github.com/bielbieloliveirag8-eng.png?size=100" width="100px;" alt="Foto de Gabriel Mendonça de Oliveira no GitHub"/>
         <br />
         <sub>
           <b>Gabriel Mendonça O.</b>
